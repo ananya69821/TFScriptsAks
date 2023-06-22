@@ -1,0 +1,11 @@
+kubectl create secret docker-registry regcred \
+  --docker-server=acr01rekha.azurecr.io \
+  --docker-username=818558f8-4409-4d0a-ae1f-2e2cbcb233c7 \
+  --docker-password=asK8Q~eBcWf3i12ohuLHiLG~Tn1Ezga7zU4MPcg8 \
+  --docker-email=rekhashri619@gmail.com
+
+  kubectl create secret docker-registry regcred \
+    --namespace default \
+    --docker-server=acr01rekha.azurecr.io \
+    --docker-username=818558f8-4409-4d0a-ae1f-2e2cbcb233c7 \
+    --docker-password=asK8Q~eBcWf3i12ohuLHiLG~Tn1Ezga7zU4MPcg8
