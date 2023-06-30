@@ -1,3 +1,3 @@
-output "app_gateway_name" {
-  value = azurerm_application_gateway.network.name
+output "aksname" {
+  value = azurerm_kubernetes_cluster.aks_cluster.name
 }

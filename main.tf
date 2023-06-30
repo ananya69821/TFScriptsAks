@@ -115,7 +115,7 @@ module "vnet" {
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "acr01rekha"
+  name                = "myaksacr01"
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   sku                 = "Premium"
@@ -123,61 +123,37 @@ resource "azurerm_container_registry" "acr" {
 }
 
 ############# AKS Agent Configuration #######################################
-resource "azurerm_public_ip" "mypublicip" {
-  name                = "my-public-ip"
-  location            = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  allocation_method   = "Static"
-}
+# resource "azurerm_public_ip" "mypublicip" {
+#   name                = "my-public-ip"
+#   location            = azurerm_resource_group.this.location
+#   resource_group_name = azurerm_resource_group.this.name
+#   allocation_method   = "Static"
+# }
 
-resource "azurerm_network_interface" "nice01" {
-  name                = "nic-agentvm"
-  location            = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
+# resource "azurerm_network_interface" "nice01" {
+#   name                = "nic-agentvm"
+#   location            = azurerm_resource_group.this.location
+#   resource_group_name = azurerm_resource_group.this.name
 
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = module.vnet.subnet_values["devops-subnet"]
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.mypublicip.id
-  }
-}
+#   ip_configuration {
+#     name                          = "internal"
+#     subnet_id                     = module.vnet.subnet_values["devops-subnet"]
+#     private_ip_address_allocation = "Dynamic"
+#     public_ip_address_id          = azurerm_public_ip.mypublicip.id
+#   }
+# }
 
-resource "azurerm_linux_virtual_machine" "agentvm" {
-  name                = "agentvm"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = azurerm_resource_group.this.location
-  size                = "Standard_F2"
-  admin_username      = "adminuser"
-  admin_password = "123Ananya@"
-  network_interface_ids = [
-    azurerm_network_interface.nice01.id,
-  ]
-  disable_password_authentication = false
-
-  os_disk {
-    caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
-  }
-
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts"
-    version   = "latest"
-  }
-}
-
-# resource "azurerm_windows_virtual_machine" "agnet_winvm" {
-#   name                = "agent-win-vm"
+# resource "azurerm_linux_virtual_machine" "agentvm" {
+#   name                = "agentvm"
 #   resource_group_name = azurerm_resource_group.this.name
 #   location            = azurerm_resource_group.this.location
 #   size                = "Standard_F2"
 #   admin_username      = "adminuser"
-#   admin_password      = "123Ananya@"
+#   admin_password = "123Ananya@"
 #   network_interface_ids = [
 #     azurerm_network_interface.nice01.id,
 #   ]
+#   disable_password_authentication = false
 
 #   os_disk {
 #     caching              = "ReadWrite"
@@ -185,10 +161,9 @@ resource "azurerm_linux_virtual_machine" "agentvm" {
 #   }
 
 #   source_image_reference {
-#     publisher = "MicrosoftWindowsServer"
-#     offer     = "WindowsServer"
-#     sku       = "2016-Datacenter"
+#     publisher = "Canonical"
+#     offer     = "0001-com-ubuntu-server-focal"
+#     sku       = "20_04-lts"
 #     version   = "latest"
 #   }
 # }
-

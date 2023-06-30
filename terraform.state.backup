@@ -1,11 +1,11 @@
 {
   "version": 4,
   "terraform_version": "1.4.2",
-  "serial": 406,
+  "serial": 399,
   "lineage": "819cb67f-c76b-298e-5bb6-67cf3d40c593",
   "outputs": {
-    "aksname": {
-      "value": "RG-01-cluster",
+    "app_gateway_name": {
+      "value": "appgateway1",
       "type": "string"
     }
   },
@@ -35,6 +35,167 @@
             ]
           },
           "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_application_gateway",
+      "name": "network",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "authentication_certificate": [],
+            "autoscale_configuration": [],
+            "backend_address_pool": [
+              {
+                "fqdns": [],
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/backendAddressPools/appgateway1-eastusbp",
+                "ip_addresses": [],
+                "name": "appgateway1-eastusbp"
+              }
+            ],
+            "backend_http_settings": [
+              {
+                "affinity_cookie_name": "",
+                "authentication_certificate": [],
+                "connection_draining": [],
+                "cookie_based_affinity": "Disabled",
+                "host_name": "",
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/backendHttpSettingsCollection/appgateway1-eastus-http",
+                "name": "appgateway1-eastus-http",
+                "path": "",
+                "pick_host_name_from_backend_address": false,
+                "port": 80,
+                "probe_id": "",
+                "probe_name": "",
+                "protocol": "Http",
+                "request_timeout": 60,
+                "trusted_root_certificate_names": []
+              }
+            ],
+            "custom_error_configuration": [],
+            "enable_http2": false,
+            "fips_enabled": false,
+            "firewall_policy_id": null,
+            "force_firewall_policy_association": false,
+            "frontend_ip_configuration": [
+              {
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/frontendIPConfigurations/appgw-appgateway1-eastus-feip",
+                "name": "appgw-appgateway1-eastus-feip",
+                "private_ip_address": "",
+                "private_ip_address_allocation": "Dynamic",
+                "private_link_configuration_id": "",
+                "private_link_configuration_name": "",
+                "public_ip_address_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/publicIPAddresses/appgateway1-eastus-gw-pip",
+                "subnet_id": ""
+              }
+            ],
+            "frontend_port": [
+              {
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/frontendPorts/appgateway1-eastus-feport",
+                "name": "appgateway1-eastus-feport",
+                "port": 80
+              },
+              {
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/frontendPorts/https_port",
+                "name": "https_port",
+                "port": 443
+              }
+            ],
+            "gateway_ip_configuration": [
+              {
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/gatewayIPConfigurations/my-gateway-ip-configuration",
+                "name": "my-gateway-ip-configuration",
+                "subnet_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/appgw-subnet"
+              }
+            ],
+            "http_listener": [
+              {
+                "custom_error_configuration": [],
+                "firewall_policy_id": "",
+                "frontend_ip_configuration_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/frontendIPConfigurations/appgw-appgateway1-eastus-feip",
+                "frontend_ip_configuration_name": "appgw-appgateway1-eastus-feip",
+                "frontend_port_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/frontendPorts/appgateway1-eastus-feport",
+                "frontend_port_name": "appgateway1-eastus-feport",
+                "host_name": "",
+                "host_names": [],
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/httpListeners/appgateway1-eastus-listner",
+                "name": "appgateway1-eastus-listner",
+                "protocol": "Http",
+                "require_sni": false,
+                "ssl_certificate_id": "",
+                "ssl_certificate_name": "",
+                "ssl_profile_id": "",
+                "ssl_profile_name": ""
+              }
+            ],
+            "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1",
+            "identity": [],
+            "location": "eastus",
+            "name": "appgateway1",
+            "private_endpoint_connection": [],
+            "private_link_configuration": [],
+            "probe": [],
+            "redirect_configuration": [],
+            "request_routing_rule": [
+              {
+                "backend_address_pool_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/backendAddressPools/appgateway1-eastusbp",
+                "backend_address_pool_name": "appgateway1-eastusbp",
+                "backend_http_settings_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/backendHttpSettingsCollection/appgateway1-eastus-http",
+                "backend_http_settings_name": "appgateway1-eastus-http",
+                "http_listener_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/httpListeners/appgateway1-eastus-listner",
+                "http_listener_name": "appgateway1-eastus-listner",
+                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/applicationGateways/appgateway1/requestRoutingRules/appgateway1-eastus-rule",
+                "name": "appgateway1-eastus-rule",
+                "priority": 0,
+                "redirect_configuration_id": "",
+                "redirect_configuration_name": "",
+                "rewrite_rule_set_id": "",
+                "rewrite_rule_set_name": "",
+                "rule_type": "Basic",
+                "url_path_map_id": "",
+                "url_path_map_name": ""
+              }
+            ],
+            "resource_group_name": "RG-01",
+            "rewrite_rule_set": [],
+            "sku": [
+              {
+                "capacity": 2,
+                "name": "Standard_v2",
+                "tier": "Standard_v2"
+              }
+            ],
+            "ssl_certificate": [],
+            "ssl_policy": [
+              {
+                "cipher_suites": [],
+                "disabled_protocols": [],
+                "min_protocol_version": "",
+                "policy_name": "AppGwSslPolicy20150501",
+                "policy_type": "Predefined"
+              }
+            ],
+            "ssl_profile": [],
+            "tags": null,
+            "timeouts": null,
+            "trusted_client_certificate": [],
+            "trusted_root_certificate": [],
+            "url_path_map": [],
+            "waf_configuration": [],
+            "zones": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_public_ip.test",
+            "azurerm_resource_group.this",
+            "module.vnet.azurerm_subnet.subnet",
+            "module.vnet.azurerm_virtual_network.virtual_network"
+          ]
         }
       ]
     },
@@ -84,7 +245,7 @@
               }
             ],
             "sku": "Premium",
-            "tags": {},
+            "tags": null,
             "timeouts": null,
             "trust_policy": [
               {
@@ -111,7 +272,7 @@
           "schema_version": 2,
           "attributes": {
             "aci_connector_linux": [],
-            "api_server_authorized_ip_ranges": [],
+            "api_server_authorized_ip_ranges": null,
             "auto_scaler_profile": [],
             "automatic_channel_upgrade": "",
             "azure_active_directory_role_based_access_control": [],
@@ -132,7 +293,7 @@
                 "node_count": 1,
                 "node_labels": {},
                 "node_public_ip_prefix_id": "",
-                "node_taints": [],
+                "node_taints": null,
                 "only_critical_addons_enabled": false,
                 "orchestrator_version": "1.26.3",
                 "os_disk_size_gb": 128,
@@ -140,13 +301,13 @@
                 "os_sku": "Ubuntu",
                 "pod_subnet_id": "",
                 "proximity_placement_group_id": "",
-                "tags": {},
+                "tags": null,
                 "type": "VirtualMachineScaleSets",
                 "ultra_ssd_enabled": false,
                 "upgrade_settings": [],
                 "vm_size": "Standard_D2_v2",
                 "vnet_subnet_id": "",
-                "zones": []
+                "zones": null
               }
             ],
             "disk_encryption_set_id": "",
@@ -160,7 +321,7 @@
             "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.ContainerService/managedClusters/RG-01-cluster",
             "identity": [
               {
-                "identity_ids": [],
+                "identity_ids": null,
                 "principal_id": "59787992-bedf-48ce-bfb3-71c607d7c763",
                 "tenant_id": "ca216e2c-342c-462c-9490-8b5b15fa4cfc",
                 "type": "SystemAssigned"
@@ -250,6 +411,225 @@
     },
     {
       "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "agentvm",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "additional_capabilities": [],
+            "admin_password": "123Ananya@",
+            "admin_ssh_key": [],
+            "admin_username": "adminuser",
+            "allow_extension_operations": true,
+            "availability_set_id": "",
+            "boot_diagnostics": [],
+            "computer_name": "agentvm",
+            "custom_data": null,
+            "dedicated_host_group_id": "",
+            "dedicated_host_id": "",
+            "disable_password_authentication": false,
+            "edge_zone": "",
+            "encryption_at_host_enabled": false,
+            "eviction_policy": "",
+            "extensions_time_budget": "PT1H30M",
+            "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Compute/virtualMachines/agentvm",
+            "identity": [],
+            "license_type": "",
+            "location": "eastus",
+            "max_bid_price": -1,
+            "name": "agentvm",
+            "network_interface_ids": [
+              "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/networkInterfaces/nic-agentvm"
+            ],
+            "os_disk": [
+              {
+                "caching": "ReadWrite",
+                "diff_disk_settings": [],
+                "disk_encryption_set_id": "",
+                "disk_size_gb": 30,
+                "name": "agentvm_OsDisk_1_171aee8d200348148c6e8064be379e5b",
+                "storage_account_type": "Standard_LRS",
+                "write_accelerator_enabled": false
+              }
+            ],
+            "patch_mode": "ImageDefault",
+            "plan": [],
+            "platform_fault_domain": -1,
+            "priority": "Regular",
+            "private_ip_address": "10.0.2.4",
+            "private_ip_addresses": [
+              "10.0.2.4"
+            ],
+            "provision_vm_agent": true,
+            "proximity_placement_group_id": "",
+            "public_ip_address": "20.232.129.125",
+            "public_ip_addresses": [
+              "20.232.129.125"
+            ],
+            "resource_group_name": "RG-01",
+            "secret": [],
+            "secure_boot_enabled": false,
+            "size": "Standard_F2",
+            "source_image_id": "",
+            "source_image_reference": [
+              {
+                "offer": "0001-com-ubuntu-server-focal",
+                "publisher": "Canonical",
+                "sku": "20_04-lts",
+                "version": "latest"
+              }
+            ],
+            "tags": null,
+            "termination_notification": null,
+            "timeouts": null,
+            "user_data": "",
+            "virtual_machine_id": "5ade2e73-817b-4a0f-bf7a-e92882474197",
+            "virtual_machine_scale_set_id": "",
+            "vtpm_enabled": false,
+            "zone": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNzAwMDAwMDAwMDAwLCJkZWxldGUiOjI3MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoyNzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_network_interface.nice01",
+            "azurerm_public_ip.mypublicip",
+            "azurerm_resource_group.this",
+            "module.vnet.azurerm_subnet.subnet",
+            "module.vnet.azurerm_virtual_network.virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_interface",
+      "name": "nice01",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "applied_dns_servers": [],
+            "dns_servers": [],
+            "edge_zone": "",
+            "enable_accelerated_networking": false,
+            "enable_ip_forwarding": false,
+            "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/networkInterfaces/nic-agentvm",
+            "internal_dns_name_label": "",
+            "internal_domain_name_suffix": "sccvwtrbugbulaysqrjenzauwb.bx.internal.cloudapp.net",
+            "ip_configuration": [
+              {
+                "gateway_load_balancer_frontend_ip_configuration_id": "",
+                "name": "internal",
+                "primary": true,
+                "private_ip_address": "10.0.2.4",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/publicIPAddresses/my-public-ip",
+                "subnet_id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/devops-subnet"
+              }
+            ],
+            "location": "eastus",
+            "mac_address": "",
+            "name": "nic-agentvm",
+            "private_ip_address": "10.0.2.4",
+            "private_ip_addresses": [
+              "10.0.2.4"
+            ],
+            "resource_group_name": "RG-01",
+            "tags": null,
+            "timeouts": null,
+            "virtual_machine_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_public_ip.mypublicip",
+            "azurerm_resource_group.this",
+            "module.vnet.azurerm_subnet.subnet",
+            "module.vnet.azurerm_virtual_network.virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_public_ip",
+      "name": "mypublicip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_method": "Static",
+            "domain_name_label": null,
+            "edge_zone": "",
+            "fqdn": null,
+            "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/publicIPAddresses/my-public-ip",
+            "idle_timeout_in_minutes": 4,
+            "ip_address": "20.232.129.125",
+            "ip_tags": null,
+            "ip_version": "IPv4",
+            "location": "eastus",
+            "name": "my-public-ip",
+            "public_ip_prefix_id": null,
+            "resource_group_name": "RG-01",
+            "reverse_fqdn": null,
+            "sku": "Basic",
+            "sku_tier": "Regional",
+            "tags": null,
+            "timeouts": null,
+            "zones": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_public_ip",
+      "name": "test",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_method": "Static",
+            "domain_name_label": null,
+            "edge_zone": "",
+            "fqdn": null,
+            "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/publicIPAddresses/appgateway1-eastus-gw-pip",
+            "idle_timeout_in_minutes": 4,
+            "ip_address": "20.232.128.183",
+            "ip_tags": null,
+            "ip_version": "IPv4",
+            "location": "eastus",
+            "name": "appgateway1-eastus-gw-pip",
+            "public_ip_prefix_id": null,
+            "resource_group_name": "RG-01",
+            "reverse_fqdn": null,
+            "sku": "Standard",
+            "sku_tier": "Regional",
+            "tags": null,
+            "timeouts": null,
+            "zones": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
       "type": "azurerm_resource_group",
       "name": "this",
       "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
@@ -260,7 +640,7 @@
             "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01",
             "location": "eastus",
             "name": "RG-01",
-            "tags": {},
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -303,7 +683,7 @@
                 "source_port_ranges": []
               }
             ],
-            "tags": {},
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -396,7 +776,7 @@
                 "source_port_ranges": []
               }
             ],
-            "tags": {},
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -416,7 +796,7 @@
             "name": "aks-subnet-nsg",
             "resource_group_name": "RG-01",
             "security_rule": [],
-            "tags": {},
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -446,10 +826,8 @@
             "name": "appgw-subnet-rt",
             "resource_group_name": "RG-01",
             "route": [],
-            "subnets": [
-              "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/appgw-subnet"
-            ],
-            "tags": {},
+            "subnets": [],
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -468,10 +846,8 @@
             "name": "devops-subnet-rt",
             "resource_group_name": "RG-01",
             "route": [],
-            "subnets": [
-              "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/devops-subnet"
-            ],
-            "tags": {},
+            "subnets": [],
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -490,10 +866,8 @@
             "name": "aks-subnet-rt",
             "resource_group_name": "RG-01",
             "route": [],
-            "subnets": [
-              "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/aks-subnet"
-            ],
-            "tags": {},
+            "subnets": [],
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -524,8 +898,8 @@
             "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/appgw-subnet",
             "name": "appgw-subnet",
             "resource_group_name": "RG-01",
-            "service_endpoint_policy_ids": [],
-            "service_endpoints": [],
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
             "timeouts": null,
             "virtual_network_name": "vnet1"
           },
@@ -549,8 +923,8 @@
             "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/devops-subnet",
             "name": "devops-subnet",
             "resource_group_name": "RG-01",
-            "service_endpoint_policy_ids": [],
-            "service_endpoints": [],
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
             "timeouts": null,
             "virtual_network_name": "vnet1"
           },
@@ -574,8 +948,8 @@
             "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/aks-subnet",
             "name": "aks-subnet",
             "resource_group_name": "RG-01",
-            "service_endpoint_policy_ids": [],
-            "service_endpoints": [],
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
             "timeouts": null,
             "virtual_network_name": "vnet1"
           },
@@ -737,27 +1111,8 @@
             "location": "eastus",
             "name": "vnet1",
             "resource_group_name": "RG-01",
-            "subnet": [
-              {
-                "address_prefix": "10.0.1.0/24",
-                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/appgw-subnet",
-                "name": "appgw-subnet",
-                "security_group": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/networkSecurityGroups/appgw-subnet-nsg"
-              },
-              {
-                "address_prefix": "10.0.2.0/24",
-                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/devops-subnet",
-                "name": "devops-subnet",
-                "security_group": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/networkSecurityGroups/devops-subnet-nsg"
-              },
-              {
-                "address_prefix": "10.0.4.0/22",
-                "id": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/aks-subnet",
-                "name": "aks-subnet",
-                "security_group": "/subscriptions/086a01dc-a5e3-447b-b63a-e33083042401/resourceGroups/RG-01/providers/Microsoft.Network/networkSecurityGroups/aks-subnet-nsg"
-              }
-            ],
-            "tags": {},
+            "subnet": [],
+            "tags": null,
             "timeouts": null
           },
           "sensitive_attributes": [],
